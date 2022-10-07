@@ -1,7 +1,6 @@
 package ex;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class MemberMain {
 	public static void main(String[] args) {
@@ -16,7 +15,7 @@ public class MemberMain {
 		// MemberMain : 화면
 		int fnKey = 0;
 		do {
-			System.out.println(" << 회원관리 프로그램 >> ");
+			System.out.println("<< 회원관리 프로그램 >> ");
 			System.out.print("1.회원가입    2.회원목록   3.불러오기   0.종료");
 			fnKey = sc.nextInt();
 			if(fnKey == 1) {

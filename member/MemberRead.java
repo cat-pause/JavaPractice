@@ -1,8 +1,7 @@
 package ex;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class MemberRead {
 	private Scanner sc;
@@ -16,11 +15,13 @@ public class MemberRead {
 	}
 	
 	BufferedReader br = null;
-	String readFile = "D:\\io\\MemberList/7thSave.txt";		//파일명 scanner로 지정해야함
 	ArrayList<MemberDTO> read() {
 		String line;
 		try {
-			
+			String inputFileName = null;
+			System.out.print("불러올 파일명(.txt) : ");
+			inputFileName = sc.next();
+			String readFile = "D:\\io\\MemberList/" +inputFileName+ ".txt";		//파일명 scanner로 지정해야함
 			br = new BufferedReader(new FileReader(readFile));
 			while( (line = br.readLine()) != null ) {
 				dto= new MemberDTO(name, gender, phone);
@@ -30,6 +31,7 @@ public class MemberRead {
 				dto.setPhone(datas[2]);
 				list.add(dto);
 			}
+			System.out.println(" ===== 불러오기 완료 ===== \n");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}catch (IOException e) {

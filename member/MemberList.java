@@ -25,12 +25,14 @@ public class MemberList {
 					no++, dto.getName(), dto.getGender(), dto.getPhone());
 		}
 		
-		System.out.print("1.회원 선택   2.돌아가기   3.[저장]");
+		System.out.print("1.회원정보 보기   2.돌아가기   3.[저장]");
 		no = sc.nextInt();
 		if(no == 1) {
-			view.display(no);
+			System.out.print("확인할 회원 번호 : ");
+			int num = sc.nextInt();
+			view.display(num);
 		}else if( no == 2 ) {
-			
+			// 돌아가기 ( if문 탈출 )
 		}else if( no == 3 ) {
 			//path에 메모리 데이터 filename.txt로 저장
 			System.out.print("파일 이름 : ");
