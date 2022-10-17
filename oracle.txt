@@ -1,0 +1,57 @@
+
+▶OracleXE 설치 - https://www.oracle.com/
+	비밀번호 설정 (0000)
+
+▶SQLDeveloper 설치 - https://www.oracle.com/
+
+▶샘플 스키마
+ - https://github.com/oracle-samples/db-sample-schemas/releases
+	Source code.zip 다운
+	Oracle 21c/dbhomeXE/demo/schema/
+	human_resources 폴더만 저장
+
+	▶dbhomeXE/demo/schema/human_resources/hr_main.sql 편집
+		@__SUB__CWD__
+	          	          ↓
+		@?/demo/schema/
+▶cmd
+	(경로)Oracle21c > dbhomeXE
+	sqlplus
+	system
+	0000
+	alter session set "_ORACLE_SCRIPT"=true;
+	@?/demo/schema/human_resources/hr_main.sql
+
+	0000
+	users
+	temp
+	0000
+	c:\oracle21c\dbhomeXE\demo\schema\log
+	localhost:1521
+	
+	▷관리자 계정 정보 보기
+	select username from dba_users;
+	▷HR 계정 unlock
+	alter user hr account unlock;
+	▷HR 계정 비밀번호 설정
+	alter user hr identified by 0000;
+
+	▷신규 유저 생성
+	create user NAME identified by 0000;
+	▷권한 부여
+	GRANT connect, dba, create view, resource TO NAME;
+
+▶계정 접속/확인
+	Oracle SQL Developer 실행
+	[접속] -> +
+	name : hr
+	사용자이름 : hr
+	비밀번호 : 0000
+	[테스트] -> "상태:성공" 확인
+	[접속]
+	[워크시트]
+		SELECT *
+		FROM EMPLOYEES;
+
+
+
