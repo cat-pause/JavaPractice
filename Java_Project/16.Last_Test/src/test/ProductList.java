@@ -9,16 +9,21 @@ public class ProductList {
 	}
 	
 	public void display() {
-		JavaUserDAO dao = new JavaUserDAO();
+		JavaDAO dao = new JavaDAO();
 		ArrayList<JavaDTO> list = dao.pList();
-		System.out.println("[물건 목록]");
+		System.out.println("=============================================================");
+		System.out.println("\t\t\t물건 목록");
+		System.out.println("=============================================================");
+		System.out.println("상품번호\t상품명\t\t제조사\t가격\t수량");
+		System.out.println("-------------------------------------------------------------");
 		for( JavaDTO dto : list ) {
-			System.out.println(dto.getNum());
-			System.out.println(dto.getP_name());
-			System.out.println(dto.getCompany());
-			System.out.println(dto.getPrice());
-			System.out.println(dto.getQty());
+			System.out.print(dto.getNum() + "\t");
+			System.out.print(dto.getP_name() + "\t");
+			System.out.print(dto.getCompany() + "\t");
+			System.out.print(dto.getPrice() + "\t");
+			System.out.print(dto.getQty() + "\n");
 		}
+		System.out.println("=============================================================");
 	}//display
 	
 	
